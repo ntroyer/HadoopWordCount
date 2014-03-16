@@ -15,14 +15,14 @@ public class Problem5Mapper extends MapReduceBase implements Mapper<LongWritable
        
         while (tokenizer.hasMoreTokens())
         {
-        	String amalia = tokenizer.nextToken();
-        	amalia = amalia.toLowerCase();
+        	String curToken = tokenizer.nextToken();
+        	curToken = curToken.toLowerCase();
         	int numVowels = 0;
         	
              //word.set(tokenizer.nextToken());
              
-             for (int i = 0; i < amalia.length(); i++){
-            	 if (amalia.charAt(i) == 'a' || amalia.charAt(i) == 'e' || amalia.charAt(i) == 'i' || amalia.charAt(i) == 'o' || amalia.charAt(i) == 'u'){
+             for (int i = 0; i < curToken.length(); i++){
+            	 if (curToken.charAt(i) == 'a' || curToken.charAt(i) == 'e' || curToken.charAt(i) == 'i' || curToken.charAt(i) == 'o' || curToken.charAt(i) == 'u'){
             		 numVowels++;
             	 }
              }
@@ -35,8 +35,8 @@ public class Problem5Mapper extends MapReduceBase implements Mapper<LongWritable
               * output.collect(word, new IntWritable(i));
               */
              
-             String cleophee = String.valueOf(numVowels);
-             word.set(cleophee);
+             String vowels = String.valueOf(numVowels);
+             word.set(vowels);
              output.collect(word, one);
         }
      }

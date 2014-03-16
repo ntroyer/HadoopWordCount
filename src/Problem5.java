@@ -21,20 +21,6 @@ public class Problem5 extends Configured implements Tool{
 
           JobClient.runJob(conf);
           
-          /*
-          JobConf bamf = new JobConf(getConf(), Histogram.class);
-          bamf.setJobName("Print Hist");
-          
-          bamf.setOutputKeyClass(Text.class);
-          bamf.setOutputValueClass(IntWritable.class);
-          
-          bamf.setMapperClass(HistogramMapper.class);
-          bamf.setReducerClass(NodeCountReducer.class);
-          
-          FileInputFormat.addInputPath(bamf, new Path(args[1]));
-          FileOutputFormat.setOutputPath(bamf, new Path(args[2]));
-          
-          JobClient.runJob(bamf);*/
           return 0;
     }
 	

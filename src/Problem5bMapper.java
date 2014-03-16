@@ -15,25 +15,25 @@ public class Problem5bMapper extends MapReduceBase implements Mapper<LongWritabl
        
         while (tokenizer.hasMoreTokens())
         {
-        	String amalia = tokenizer.nextToken();
-        	amalia = amalia.toLowerCase();
-        	amalia.replaceAll(",", "");
-        	amalia.replaceAll(".", "");
-        	amalia.replaceAll(";", "");
+        	String curToken = tokenizer.nextToken();
+        	curToken = curToken.toLowerCase();
+        	curToken.replaceAll(",", "");
+        	curToken.replaceAll(".", "");
+        	curToken.replaceAll(";", "");
         	int numVowels = 0;
         	
         	
              //word.set(tokenizer.nextToken());
              
-             for (int i = 0; i < amalia.length(); i++){
-            	 if (amalia.charAt(i) == 'a' || amalia.charAt(i) == 'e' || amalia.charAt(i) == 'i' || amalia.charAt(i) == 'o' || amalia.charAt(i) == 'u'){
+             for (int i = 0; i < curToken.length(); i++){
+            	 if (curToken.charAt(i) == 'a' || curToken.charAt(i) == 'e' || curToken.charAt(i) == 'i' || curToken.charAt(i) == 'o' || curToken.charAt(i) == 'u'){
             		 numVowels++;
             	 }
              }
              
-             String cleophee = String.valueOf(numVowels);
-             String ecaflip = String.valueOf(amalia.length());
-             word.set(ecaflip + " " + cleophee);
+             String vowels = String.valueOf(numVowels);
+             String tokenLength = String.valueOf(curToken.length());
+             word.set(tokenLength + " " + vowels);
              output.collect(word, one);
         }
      }

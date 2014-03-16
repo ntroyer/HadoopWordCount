@@ -26,19 +26,19 @@ public class Histogram extends Configured implements Tool{
 
           JobClient.runJob(conf);
           
-          JobConf bamf = new JobConf(getConf(), Histogram.class);
-          bamf.setJobName("Print Hist");
+          JobConf histConf = new JobConf(getConf(), Histogram.class);
+          histConf.setJobName("Print Hist");
           
-          bamf.setOutputKeyClass(Text.class);
-          bamf.setOutputValueClass(IntWritable.class);
+          histConf.setOutputKeyClass(Text.class);
+          histConf.setOutputValueClass(IntWritable.class);
           
-          bamf.setMapperClass(HistogramMapper.class);
-          bamf.setReducerClass(NodeCountReducer.class);
+          histConf.setMapperClass(HistogramMapper.class);
+          histConf.setReducerClass(NodeCountReducer.class);
           
-          FileInputFormat.addInputPath(bamf, new Path(args[1]));
-          FileOutputFormat.setOutputPath(bamf, new Path(args[2]));
+          FileInputFormat.addInputPath(histConf, new Path(args[1]));
+          FileOutputFormat.setOutputPath(histConf, new Path(args[2]));
           
-          JobClient.runJob(bamf);
+          JobClient.runJob(histConf);
           return 0;
     }
 	

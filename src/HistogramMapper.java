@@ -16,10 +16,10 @@ public class HistogramMapper extends MapReduceBase implements Mapper<LongWritabl
        
           while (tokenizer.hasMoreTokens())
           {
-              String cra = tokenizer.nextToken();
-              String sadida = tokenizer.nextToken();
+              String title = tokenizer.nextToken();
+              String sentWord = tokenizer.nextToken();
               
-              word.set(sadida);
+              word.set(sentWord);
               output.collect(word, one);
           }
      }
